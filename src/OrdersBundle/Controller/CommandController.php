@@ -134,4 +134,19 @@ class CommandController extends Controller
             ->getForm()
         ;
     }
+
+
+    /**
+     * Finds and displays a command entity.
+     *
+     * @Route("/searchOrder", name="order_search")
+     * @Method("GET")
+     */
+    /*
+    public function searchAction()
+    {
+        return $this->render('command/search.html.twig', array(
+        ));
+    }
+    */
 }
