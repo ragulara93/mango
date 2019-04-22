@@ -1,0 +1,15 @@
+
+Pour créer mes enregistrements en bdd:
+php bin/console orders:insert-data
+
+Route pour lister les commandes : 
+/order/
+
+Route pour lister une commande avec un id : 
+order/{id}
+
+Route pour updater une commande avec un id : 
+/order/{id}/edit
+
+Route pour créer une commande avec un id : 
+/order/new
