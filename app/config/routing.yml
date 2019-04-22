@@ -1,0 +1,4 @@
+orders:
+    resource: "@OrdersBundle/Controller/"
+    type:     annotation
+    prefix:   /

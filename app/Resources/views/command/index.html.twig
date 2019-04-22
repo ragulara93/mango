@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Commands list</h1>
+
+    <table class="datatable display responsive">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marketplace</th>
+                <th>Idflux</th>
+                <th>Ordermrid</th>
+                <th>Purchasedate</th>
+                <th>Amount</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for command in commands %}
+            <tr>
+                <td><a href="{{ path('order_show', { 'id': command.id }) }}">{{ command.id }}</a></td>
+                <td>{{ command.marketplace }}</td>
+                <td>{{ command.idFlux }}</td>
+                <td>{{ command.orderMrid }}</td>
+                <td>{% if command.purchaseDate %}{{ command.purchaseDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ command.amount }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('order_show', { 'id': command.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('order_edit', { 'id': command.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('order_new') }}" class="btn btn-primary">Create a new command</a>
+        </li>
+    </ul>
+{% endblock %}

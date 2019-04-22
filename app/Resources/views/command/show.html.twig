@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Command</h1>
+
+    <table class="datatable display responsive">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ command.id }}</td>
+            </tr>
+            <tr>
+                <th>Marketplace</th>
+                <td>{{ command.marketplace }}</td>
+            </tr>
+            <tr>
+                <th>Idflux</th>
+                <td>{{ command.idFlux }}</td>
+            </tr>
+            <tr>
+                <th>Ordermrid</th>
+                <td>{{ command.orderMrid }}</td>
+            </tr>
+            <tr>
+                <th>Purchasedate</th>
+                <td>{% if command.purchaseDate %}{{ command.purchaseDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <td>{{ command.amount }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('order_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('order_edit', { 'id': command.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
